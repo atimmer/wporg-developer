@@ -298,6 +298,8 @@ input {
   /*
    * section styles
    */
+  /* = Usage
+  ----------------------------------------------- */
   /* Comments */
   /*
    * Content
@@ -1157,6 +1159,23 @@ input {
 .devhub-wrap .single .wp-parser-class, .devhub-wrap .single .wp-parser-function, .devhub-wrap .single .wp-parser-hook, .devhub-wrap .single .wp-parser-method {
   border-bottom-style: none;
 }
+.devhub-wrap .usage:before, .devhub-wrap .usage:after {
+  content: " ";
+  display: table;
+}
+.devhub-wrap .usage:after {
+  clear: both;
+}
+.devhub-wrap .usage article {
+  float: left;
+  width: 50%;
+}
+.devhub-wrap .usage .used-by {
+  padding-right: 30px;
+}
+.devhub-wrap .usage .uses {
+  padding-left: 30px;
+}
 .devhub-wrap .source-content {
   overflow: auto;
 }
@@ -1422,5 +1441,8 @@ input {
   }
   .devhub-wrap .two-columns .box {
     width: 99%;
+  }
+  .devhub-wrap .usage article {
+    width: 100%;
   }
 }

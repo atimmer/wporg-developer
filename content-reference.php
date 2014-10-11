@@ -50,6 +50,41 @@ if ( ! empty( $since ) ) : ?>
 	<?php endif; ?>
 	*/ ?>
 
+	<?php if ( show_usage_info() ) : ?>
+		<hr />
+		<section class="usage">
+			<article class="used-by">
+				<h2><?php _e( 'Used by', 'wporg' ); ?></h2>
+				<ul>
+					<?php
+						$used_by = get_used_by();
+						while ( $used_by->have_posts() ) : $used_by->the_post();
+							?>
+							<li>
+								<strong><?php echo esc_attr( get_source_file() ); ?>:</strong>
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</li>
+						<?php endwhile; wp_reset_postdata(); ?>
+				</ul>
+
+			</article>
+			<article class="uses">
+				<h2><?php _e( 'Uses', 'wporg' ); ?></h2>
+				<ul>
+					<?php
+					$uses = get_uses();
+					while ( $uses->have_posts() ) : $uses->the_post()
+						?>
+						<li>
+							<strong><?php echo esc_attr( get_source_file() ); ?>:</strong>
+							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						</li>
+					<?php endwhile; wp_reset_postdata(); ?>
+				</ul>
+			</article>
+		</section>
+	<?php endif; ?>
+
 	<?php
 	ob_start();
 	the_content();

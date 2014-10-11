@@ -1,6 +1,8 @@
 @import "reset";
 @import "global";
 
+@import "mixins";
+
 .home .devhub-wrap {
 	#content {
 		padding: 0;
@@ -966,6 +968,26 @@
 		}
 	}
 
+	/* = Usage
+	----------------------------------------------- */
+	.usage {
+		@include clearfix;
+
+		article {
+			float: left;
+			width: 50%;
+		}
+
+		.used-by {
+			padding-right: 30px;
+		}
+
+		.uses {
+			padding-left: 30px;
+		}
+	}
+
+
 	.source-content {
 		overflow: auto;
 	}
@@ -1312,6 +1334,12 @@
 
 		.two-columns .box {
 			width: 99%;
+		}
+
+		.usage {
+			article {
+				width: 100%;
+			}
 		}
 	}
 }
