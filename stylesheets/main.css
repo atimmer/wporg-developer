@@ -1183,6 +1183,11 @@ input {
 .devhub-wrap .usage .uses {
   padding-left: 30px;
 }
+.devhub-wrap .usage ul {
+  line-height: 1.7;
+  list-style-type: none;
+  margin: 0;
+}
 .devhub-wrap .source-content {
   overflow: auto;
 }
