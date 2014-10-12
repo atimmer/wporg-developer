@@ -726,7 +726,6 @@ namespace DevHub {
 	 * @return WP_Query A WP_Query object for the posts the current post uses
 	 */
 	function get_uses() {
-		$post = get_post();
 
 		if ( 'wp-parser-function' === get_post_type() ) {
 			$connection_types = array( 'functions_to_functions', 'functions_to_methods', 'functions_to_hooks' );
@@ -738,7 +737,7 @@ namespace DevHub {
 			'post_type'           => array( 'wp-parser-function', 'wp-parser-method', 'wp-parser-hook' ),
 			'connected_type'      => $connection_types,
 			'connected_direction' => array( 'from', 'from', 'from' ),
-			'connected_items'     => get_queried_object(),
+			'connected_items'     => get_the_ID(),
 			'nopaging'            => true,
 		) );
 

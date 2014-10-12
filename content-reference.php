@@ -44,14 +44,8 @@ if ( ! empty( $since ) ) : ?>
 		</section>
 	<?php endif; ?>
 
-	<?php /*
-	<?php if ( is_archive() ) : ?>
-	<section class="meta">Used by TODO | Uses TODO | TODO Examples</section>
-	<?php endif; ?>
-	*/ ?>
-
 	<?php if ( show_usage_info() ) : ?>
-		<hr />
+		<hr id="usage" />
 		<section class="usage">
 			<article class="used-by">
 				<h2><?php _e( 'Used by', 'wporg' ); ?></h2>

@@ -17,4 +17,17 @@
 		<p>Source: <?php echo get_source_file(); ?>:<?php echo get_line_number(); ?></p>
 	</div>
 
+	<?php
+		$used_by = get_used_by()->post_count;
+		$uses    = get_uses()->post_count;
+	?>
+	<div class="meta">
+		Used by <a href="<?php the_permalink(); ?>#usage"><?php printf( _n( '1 function', '%d functions', $used_by ), $used_by ); ?></a>
+		|
+		Uses <a href="<?php the_permalink(); ?>#usage"><?php printf( _n( '1 function', '%d functions', $uses ), $uses ); ?></a>
+		<?php /*
+		|
+		<a href="<?php the_permalink(); ?>#examples">2 examples</a>
+		*/ ?>
+	</div>
 </article>

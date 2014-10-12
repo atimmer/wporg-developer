@@ -888,6 +888,8 @@
 	}
 	.wp-parser-class, .wp-parser-function, .wp-parser-hook, .wp-parser-method {
 		border-bottom: 1px solid #dfdfdf;
+
+		@include clearfix();
 		h1 {
 			margin: 24px 0;
 			padding-left: 100px;
@@ -1225,6 +1227,17 @@
 			}
 		}
 	}
+
+	&.archive, &.search {
+		.meta {
+			font-size: 100%;
+			margin-bottom: 1.5em;
+
+			a {
+				color: #21759b;
+			}
+		}
+	}
 }
 
 @media ( max-width: 59.999999em ) {
@@ -1247,6 +1260,20 @@
 		}
 		.site-branding .site-title {
 			padding-left: 0;
+		}
+	}
+}
+
+@media ( min-width: 43em ) {
+	.devhub-wrap {
+		&.archive, &.search {
+			.meta {
+				float: right;
+			}
+
+			.sourcefile {
+				float: left;
+			}
 		}
 	}
 }

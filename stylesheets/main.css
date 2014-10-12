@@ -1099,6 +1099,13 @@ input {
 .devhub-wrap .wp-parser-class, .devhub-wrap .wp-parser-function, .devhub-wrap .wp-parser-hook, .devhub-wrap .wp-parser-method {
   border-bottom: 1px solid #dfdfdf;
 }
+.devhub-wrap .wp-parser-class:before, .devhub-wrap .wp-parser-class:after, .devhub-wrap .wp-parser-function:before, .devhub-wrap .wp-parser-function:after, .devhub-wrap .wp-parser-hook:before, .devhub-wrap .wp-parser-hook:after, .devhub-wrap .wp-parser-method:before, .devhub-wrap .wp-parser-method:after {
+  content: " ";
+  display: table;
+}
+.devhub-wrap .wp-parser-class:after, .devhub-wrap .wp-parser-function:after, .devhub-wrap .wp-parser-hook:after, .devhub-wrap .wp-parser-method:after {
+  clear: both;
+}
 .devhub-wrap .wp-parser-class h1, .devhub-wrap .wp-parser-function h1, .devhub-wrap .wp-parser-hook h1, .devhub-wrap .wp-parser-method h1 {
   margin: 24px 0;
   padding-left: 100px;
@@ -1350,6 +1357,13 @@ input {
 .devhub-wrap ul.items li a {
   color: #555 !important;
 }
+.devhub-wrap.archive .meta, .devhub-wrap.search .meta {
+  font-size: 100%;
+  margin-bottom: 1.5em;
+}
+.devhub-wrap.archive .meta a, .devhub-wrap.search .meta a {
+  color: #21759b;
+}
 
 @media (max-width: 60em) {
   .devhub-wrap {
@@ -1368,6 +1382,14 @@ input {
   }
   .devhub-wrap .site-branding .site-title {
     padding-left: 0;
+  }
+}
+@media (min-width: 43em) {
+  .devhub-wrap.archive .meta, .devhub-wrap.search .meta {
+    float: right;
+  }
+  .devhub-wrap.archive .sourcefile, .devhub-wrap.search .sourcefile {
+    float: left;
   }
 }
 @media (max-width: 43em) {
