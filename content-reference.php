@@ -60,22 +60,24 @@ if ( ! empty( $since ) ) : ?>
 							</li>
 						<?php endwhile; wp_reset_postdata(); ?>
 				</ul>
-
 			</article>
-			<article class="uses">
-				<h2><?php _e( 'Uses', 'wporg' ); ?></h2>
-				<ul>
-					<?php
-					$uses = get_uses();
-					while ( $uses->have_posts() ) : $uses->the_post()
-						?>
-						<li>
-							<strong><?php echo esc_attr( get_source_file() ); ?>:</strong>
-							<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						</li>
-					<?php endwhile; wp_reset_postdata(); ?>
-				</ul>
-			</article>
+			<?php if ( post_type_has_uses_info() ) : ?>
+				<article class="uses">
+					<h2><?php _e( 'Uses', 'wporg' ); ?></h2>
+					<ul>
+						<?php
+						$uses = get_uses();
+						while ( $uses->have_posts() ) : $uses->the_post()
+							?>
+							<li>
+								<strong><?php echo esc_attr( get_source_file() ); ?>:</strong>
+								<a href="<?php the_permalink(); ?>"><?php the_title(); ?>
+								<?php if ( 'wp-parser-hook' !== get_post_type() ) : ?>()<?php endif; ?></a>
+							</li>
+						<?php endwhile; wp_reset_postdata(); ?>
+					</ul>
+				</article>
+			<?php endif; ?>
 		</section>
 	<?php endif; ?>
 

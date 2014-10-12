@@ -721,6 +721,20 @@ namespace DevHub {
 	}
 
 	/**
+	 * Does the post type support uses information?
+	 *
+	 * @param string $post_type Optional. The post type name. If blank, assumes current post type.
+	 *
+	 * @return boolean
+	 */
+	function post_type_has_uses_info( $post_type = null ) {
+		$post_type             = $post_type ? $post_type : get_post_type();
+		$post_types_with_uses  = array( 'wp-parser-function', 'wp-parser-method' );
+
+		return in_array( $post_type, $post_types_with_uses );
+	}
+
+	/**
 	 * Retrieve a WP_Query object for the posts that the current post uses
 	 *
 	 * @return WP_Query A WP_Query object for the posts the current post uses
