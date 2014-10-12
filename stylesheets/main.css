@@ -1188,6 +1188,9 @@ input {
   list-style-type: none;
   margin: 0;
 }
+.devhub-wrap .usage .show-more, .devhub-wrap .usage .hide-more {
+  display: none;
+}
 .devhub-wrap .source-content {
   overflow: auto;
 }

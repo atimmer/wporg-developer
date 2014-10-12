@@ -59,6 +59,10 @@ if ( ! empty( $since ) ) : ?>
 								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 							</li>
 						<?php endwhile; wp_reset_postdata(); ?>
+						<?php if ( $used_by->post_count > 5 ) : ?>
+							<a href="#" class="show-more"><?php printf( _n( 'Show 1 more used by', 'Show %d more used by', $used_by->post_count, 'wporg' ), $used_by->post_count ); ?></a>
+							<a href="#" class="hide-more"><?php _e( 'Hide more used by', 'wporg' ); ?></a>
+						<?php endif; ?>
 				</ul>
 			</article>
 			<?php if ( post_type_has_uses_info() ) : ?>
@@ -75,6 +79,10 @@ if ( ! empty( $since ) ) : ?>
 								<?php if ( 'wp-parser-hook' !== get_post_type() ) : ?>()<?php endif; ?></a>
 							</li>
 						<?php endwhile; wp_reset_postdata(); ?>
+						<?php if ( $uses->post_count > 5 ) : ?>
+							<a href="#" class="show-more"><?php printf( _n( 'Show 1 more use', 'Show %d more uses', $uses->post_count, 'wporg' ), $uses->post_count ); ?></a>
+							<a href="#" class="hide-more"><?php _e( 'Hide more uses', 'wporg' ); ?></a>
+						<?php endif; ?>
 					</ul>
 				</article>
 			<?php endif; ?>

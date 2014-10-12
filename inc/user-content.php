@@ -61,14 +61,23 @@ class DevHub_User_Submitted_Content {
 	 * Enqueues scripts and styles.
 	 */
 	public static function scripts_and_styles() {
-		if ( is_singular() && ( '0' != get_comments_number() || \DevHub\post_type_has_source_code() ) ) {
-			wp_enqueue_script( 'wporg-developer-function-reference', get_template_directory_uri() . '/js/function-reference.js', array( 'jquery', 'syntaxhighlighter-core', 'syntaxhighlighter-brush-php' ), '20140515', true );
-			wp_enqueue_style( 'syntaxhighlighter-core' );
-			wp_enqueue_style( 'syntaxhighlighter-theme-default' );
+		if ( is_singular() ) {
+			wp_enqueue_script( 'wporg-developer-function-reference', get_template_directory_uri() . '/js/function-reference.js', array( 'jquery' ), '20140515', true );
 
-			wp_enqueue_script( 'wporg-developer-user-notes', get_template_directory_uri() . '/js/user-notes.js', array(), '20140912', true );
-			if ( get_option( 'thread_comments' ) ) {
-				wp_enqueue_script( 'comment-reply' );
+			if ( \DevHub\post_type_has_source_code() ) {
+				wp_enqueue_script( 'syntaxhighlighter-core' );
+				wp_enqueue_script( 'syntaxhighlighter-brush-php' );
+
+				wp_enqueue_style( 'syntaxhighlighter-core' );
+				wp_enqueue_style( 'syntaxhighlighter-theme-default' );
+			}
+
+			if ( '0' != get_comments_number() ) {
+				wp_enqueue_script( 'wporg-developer-user-notes', get_template_directory_uri() . '/js/user-notes.js', array(), '20140912', true );
+
+				if ( get_option( 'thread_comments' ) ) {
+					wp_enqueue_script( 'comment-reply' );
+				}
 			}
 		}
 	}
